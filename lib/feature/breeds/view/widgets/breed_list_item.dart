@@ -1,5 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:love_dogs/core/router/constant.dart';
+import 'package:love_dogs/core/router/routes.dart';
 import 'package:love_dogs/feature/breeds/model/breed_list_item.dart';
 
 class BreedListWidget extends StatelessWidget {
@@ -11,7 +13,7 @@ class BreedListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        print(breed.breedName);
+        RouteApp.routemaster.push('$RANDOM_MATCH?breed=${breed.breedName}');
       },
       child: Padding(
         padding: EdgeInsets.only(

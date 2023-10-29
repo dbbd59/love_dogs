@@ -37,8 +37,10 @@ class RouteApp {
               child: const AppScaffold(),
               paths: [RANDOM_MATCH, BREEDS, FAVORITES],
             ),
-        RANDOM_MATCH: (route) => const MaterialPage(
-              child: RandomMatchView(),
+        RANDOM_MATCH: (route) => MaterialPage(
+              child: RandomMatchView(
+                filterBreed: route.queryParameters['breed'],
+              ),
             ),
         BREEDS: (route) => const MaterialPage(
               child: BreedsView(),

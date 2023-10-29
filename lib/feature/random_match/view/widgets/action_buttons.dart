@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:love_dogs/feature/random_match/cubit/random_match_cubit.dart';
 
 class ActionButtons extends StatelessWidget {
-  const ActionButtons({super.key});
+  const ActionButtons({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

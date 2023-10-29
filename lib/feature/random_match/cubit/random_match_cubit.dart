@@ -15,13 +15,14 @@ class RandomMatchCubit extends Cubit<RandomMatchState> {
 
   final RandomMatchRepo repo;
 
-  Future<void> fetch() async {
-    final dog = await repo.getRandomDog();
+  Future<void> fetch(String? filterBreed) async {
+    final dog = await repo.getRandomDog(filterBreed);
 
     try {
       emit(
         RandomMatchState.data(
           dog,
+          filterBreed,
         ),
       );
     } catch (e) {
@@ -30,15 +31,15 @@ class RandomMatchCubit extends Cubit<RandomMatchState> {
   }
 
   Future<void> like() async {
+    final currentState = state as _Data;
+
     emit(const RandomMatchState.loading());
 
-    final dog = await repo.getRandomDog();
+    final dog = await repo.getRandomDog(currentState.filter);
 
     try {
       emit(
-        RandomMatchState.data(
-          dog,
-        ),
+        currentState.copyWith(dog: dog),
       );
     } catch (e) {
       emit(const RandomMatchState.error());
@@ -46,14 +47,14 @@ class RandomMatchCubit extends Cubit<RandomMatchState> {
   }
 
   Future<void> dislike() async {
+    final currentState = state as _Data;
+
     emit(const RandomMatchState.loading());
-    final dog = await repo.getRandomDog();
+    final dog = await repo.getRandomDog(currentState.filter);
 
     try {
       emit(
-        RandomMatchState.data(
-          dog,
-        ),
+        currentState.copyWith(dog: dog),
       );
     } catch (e) {
       emit(const RandomMatchState.error());

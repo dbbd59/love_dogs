@@ -8,8 +8,10 @@ import 'package:love_dogs/feature/random_match/model/random_match_dog.dart';
 
 @injectable
 class RandomMatchRepo {
-  Future<RandomMatchDog> getRandomDog() async {
-    final url = Uri.parse(RANDOM_DOG);
+  Future<RandomMatchDog> getRandomDog(String? filterBreed) async {
+    final url = filterBreed == null
+        ? Uri.parse(RANDOM_DOG)
+        : Uri.parse(RANDOM_DOG_BY_BREED.replaceAll(':BREED', filterBreed));
     final response = await http.get(
       url,
     );

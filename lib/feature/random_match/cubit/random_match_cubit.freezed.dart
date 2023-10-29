@@ -19,21 +19,21 @@ mixin _$RandomMatchState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(RandomMatchDog dog) data,
+    required TResult Function(RandomMatchDog dog, String? filter) data,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(RandomMatchDog dog)? data,
+    TResult? Function(RandomMatchDog dog, String? filter)? data,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(RandomMatchDog dog)? data,
+    TResult Function(RandomMatchDog dog, String? filter)? data,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -119,7 +119,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(RandomMatchDog dog) data,
+    required TResult Function(RandomMatchDog dog, String? filter) data,
     required TResult Function() error,
   }) {
     return loading();
@@ -129,7 +129,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(RandomMatchDog dog)? data,
+    TResult? Function(RandomMatchDog dog, String? filter)? data,
     TResult? Function()? error,
   }) {
     return loading?.call();
@@ -139,7 +139,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(RandomMatchDog dog)? data,
+    TResult Function(RandomMatchDog dog, String? filter)? data,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -194,7 +194,7 @@ abstract class _$$DataImplCopyWith<$Res> {
           _$DataImpl value, $Res Function(_$DataImpl) then) =
       __$$DataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RandomMatchDog dog});
+  $Res call({RandomMatchDog dog, String? filter});
 
   $RandomMatchDogCopyWith<$Res> get dog;
 }
@@ -210,12 +210,17 @@ class __$$DataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? dog = null,
+    Object? filter = freezed,
   }) {
     return _then(_$DataImpl(
       null == dog
           ? _value.dog
           : dog // ignore: cast_nullable_to_non_nullable
               as RandomMatchDog,
+      freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -231,14 +236,16 @@ class __$$DataImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DataImpl implements _Data {
-  const _$DataImpl(this.dog);
+  const _$DataImpl(this.dog, this.filter);
 
   @override
   final RandomMatchDog dog;
+  @override
+  final String? filter;
 
   @override
   String toString() {
-    return 'RandomMatchState.data(dog: $dog)';
+    return 'RandomMatchState.data(dog: $dog, filter: $filter)';
   }
 
   @override
@@ -246,11 +253,12 @@ class _$DataImpl implements _Data {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DataImpl &&
-            (identical(other.dog, dog) || other.dog == dog));
+            (identical(other.dog, dog) || other.dog == dog) &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, dog);
+  int get hashCode => Object.hash(runtimeType, dog, filter);
 
   @JsonKey(ignore: true)
   @override
@@ -262,32 +270,32 @@ class _$DataImpl implements _Data {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(RandomMatchDog dog) data,
+    required TResult Function(RandomMatchDog dog, String? filter) data,
     required TResult Function() error,
   }) {
-    return data(dog);
+    return data(dog, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(RandomMatchDog dog)? data,
+    TResult? Function(RandomMatchDog dog, String? filter)? data,
     TResult? Function()? error,
   }) {
-    return data?.call(dog);
+    return data?.call(dog, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(RandomMatchDog dog)? data,
+    TResult Function(RandomMatchDog dog, String? filter)? data,
     TResult Function()? error,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(dog);
+      return data(dog, filter);
     }
     return orElse();
   }
@@ -328,9 +336,11 @@ class _$DataImpl implements _Data {
 }
 
 abstract class _Data implements RandomMatchState {
-  const factory _Data(final RandomMatchDog dog) = _$DataImpl;
+  const factory _Data(final RandomMatchDog dog, final String? filter) =
+      _$DataImpl;
 
   RandomMatchDog get dog;
+  String? get filter;
   @JsonKey(ignore: true)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -375,7 +385,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(RandomMatchDog dog) data,
+    required TResult Function(RandomMatchDog dog, String? filter) data,
     required TResult Function() error,
   }) {
     return error();
@@ -385,7 +395,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(RandomMatchDog dog)? data,
+    TResult? Function(RandomMatchDog dog, String? filter)? data,
     TResult? Function()? error,
   }) {
     return error?.call();
@@ -395,7 +405,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(RandomMatchDog dog)? data,
+    TResult Function(RandomMatchDog dog, String? filter)? data,
     TResult Function()? error,
     required TResult orElse(),
   }) {
