@@ -1,8 +1,8 @@
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:love_dogs/core/di/injections.dart';
+import 'package:love_dogs/core/repo/theme_manager.dart';
 import 'package:love_dogs/core/router/routes.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,43 +16,23 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routeInformationParser: RouteApp.routeInformationParser,
-      darkTheme: FlexThemeData.dark(
-        scheme: FlexScheme.blueM3,
-        surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
-        blendLevel: 13,
-        subThemesData: const FlexSubThemesData(
-          blendOnLevel: 20,
-          useTextTheme: true,
-          useM2StyleDividerInM3: true,
-          alignedDropdown: true,
-          useInputDecoratorThemeInDialogs: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => getDependency<ThemeManager>(),
         ),
-        visualDensity: FlexColorScheme.comfortablePlatformDensity,
-        useMaterial3: true,
-        swapLegacyOnMaterial3: true,
-        fontFamily: GoogleFonts.notoSans().fontFamily,
+      ],
+      child: Builder(
+        builder: (context) {
+          return MaterialApp.router(
+            routeInformationParser: RouteApp.routeInformationParser,
+            darkTheme: context.read<ThemeManager>().darkTheme,
+            theme: context.read<ThemeManager>().lightTheme,
+            themeMode: context.watch<ThemeManager>().themeMode,
+            routerDelegate: RouteApp.routemaster,
+          );
+        },
       ),
-      theme: FlexThemeData.light(
-        scheme: FlexScheme.blueM3,
-        surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
-        blendLevel: 7,
-        subThemesData: const FlexSubThemesData(
-          blendOnLevel: 10,
-          blendOnColors: false,
-          useTextTheme: true,
-          useM2StyleDividerInM3: true,
-          alignedDropdown: true,
-          useInputDecoratorThemeInDialogs: true,
-        ),
-        visualDensity: FlexColorScheme.comfortablePlatformDensity,
-        useMaterial3: true,
-        swapLegacyOnMaterial3: true,
-        fontFamily: GoogleFonts.notoSans().fontFamily,
-      ),
-      themeMode: ThemeMode.light,
-      routerDelegate: RouteApp.routemaster,
     );
   }
 }
