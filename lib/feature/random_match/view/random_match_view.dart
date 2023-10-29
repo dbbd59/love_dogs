@@ -10,7 +10,7 @@ class RandomMatchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => getDependency<RandomMatchCubit>()..init(),
+      create: (_) => getDependency<RandomMatchCubit>()..fetch(),
       child: BlocBuilder<RandomMatchCubit, RandomMatchState>(
         builder: (context, state) => state.map(
           loading: (state) => const Center(child: CircularProgressIndicator()),

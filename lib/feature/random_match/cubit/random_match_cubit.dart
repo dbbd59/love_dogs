@@ -15,7 +15,7 @@ class RandomMatchCubit extends Cubit<RandomMatchState> {
 
   final RandomMatchRepo repo;
 
-  Future<void> init() async {
+  Future<void> fetch() async {
     final dog = await repo.getRandomDog();
 
     try {
