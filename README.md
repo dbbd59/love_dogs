@@ -60,3 +60,38 @@ flutter run
 The codebase is structured to separate concerns and ensure code maintainability and scalability.
 
 ![architecture](docs/architecture.png)
+
+## Testing
+
+### e2e
+
+It's using fluttium for end to end testing
+
+https://fluttium.dev/docs/getting-started
+
+- install fluttium:
+
+```bash
+flutter pub global activate fluttium_cli
+```
+
+- run it:
+
+```bash
+fluttium test test/e2e/random_match_flow.yaml
+```
+
+- results:
+
+```bash
+  Random Match like and favorites.
+
+  ✅  Expect visible "Love Dogs"
+  ✅  Press on "Like"
+  ✅  Press on "Favorites"
+  ✅  Expect visible "Favorite_0"
+  ✅  Press on "RandomMatch"
+  ✅  Press on "Like"
+  ✅  Press on "Favorites"
+  ✅  Expect visible "Favorite_1"
+```
