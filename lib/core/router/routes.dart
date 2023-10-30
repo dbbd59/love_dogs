@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:love_dogs/core/design_system/app_scaffold.dart';
 import 'package:love_dogs/core/router/constant.dart';
-import 'package:love_dogs/feature/breeds/view/breeds_view.dart';
-import 'package:love_dogs/feature/favorites/view/favorite_view.dart';
-import 'package:love_dogs/feature/random_match/view/random_match_view.dart';
+import 'package:love_dogs/features/breeds/view/breeds_view.dart';
+import 'package:love_dogs/features/favorites/view/favorite_view.dart';
+import 'package:love_dogs/features/random_match/view/random_match_view.dart';
 import 'package:routemaster/routemaster.dart';
 
 class RouteApp {

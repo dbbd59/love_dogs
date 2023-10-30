@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:love_dogs/core/repo/dog_repo.dart';
-import 'package:love_dogs/feature/random_match/model/random_match_dog.dart';
+import 'package:love_dogs/features/random_match/model/random_match_dog.dart';
 
 part 'random_match_cubit.freezed.dart';
 part 'random_match_state.dart';
@@ -16,9 +16,9 @@ class RandomMatchCubit extends Cubit<RandomMatchState> {
   final DogRepo repo;
 
   Future<void> fetch(String? filterBreed) async {
-    final dog = await repo.getRandomDog(filterBreed: filterBreed);
-
     try {
+      final dog = await repo.getRandomDog(filterBreed: filterBreed);
+
       emit(
         RandomMatchState.data(
           dog,
@@ -31,15 +31,15 @@ class RandomMatchCubit extends Cubit<RandomMatchState> {
   }
 
   Future<void> like() async {
-    final currentState = state as _Data;
-    repo.favoriteDogs.add(currentState.dog);
-
-    emit(const RandomMatchState.loading());
-
-    final newRandomDog =
-        await repo.getRandomDog(filterBreed: currentState.filter);
-
     try {
+      final currentState = state as _Data;
+      repo.favoriteDogs.add(currentState.dog);
+
+      emit(const RandomMatchState.loading());
+
+      final newRandomDog =
+          await repo.getRandomDog(filterBreed: currentState.filter);
+
       emit(
         currentState.copyWith(dog: newRandomDog),
       );
@@ -49,13 +49,13 @@ class RandomMatchCubit extends Cubit<RandomMatchState> {
   }
 
   Future<void> dislike() async {
-    final currentState = state as _Data;
-
-    emit(const RandomMatchState.loading());
-    final newRandomDog =
-        await repo.getRandomDog(filterBreed: currentState.filter);
-
     try {
+      final currentState = state as _Data;
+
+      emit(const RandomMatchState.loading());
+      final newRandomDog =
+          await repo.getRandomDog(filterBreed: currentState.filter);
+
       emit(
         currentState.copyWith(dog: newRandomDog),
       );
@@ -65,10 +65,10 @@ class RandomMatchCubit extends Cubit<RandomMatchState> {
   }
 
   Future<void> clearFilter() async {
-    emit(const RandomMatchState.loading());
-    final dog = await repo.getRandomDog();
-
     try {
+      emit(const RandomMatchState.loading());
+      final dog = await repo.getRandomDog();
+
       emit(
         RandomMatchState.data(
           dog,

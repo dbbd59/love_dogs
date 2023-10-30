@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:love_dogs/core/repo/dog_repo.dart';
-import 'package:love_dogs/feature/breeds/model/breed_list_item.dart';
+import 'package:love_dogs/features/breeds/model/breed_list_item.dart';
 
 part 'breeds_cubit.freezed.dart';
 part 'breeds_state.dart';
@@ -16,9 +16,9 @@ class BreedsCubit extends Cubit<BreedsState> {
   final DogRepo repo;
 
   Future<void> fetch() async {
-    final breeds = await repo.getDogBreeds();
-
     try {
+      final breeds = await repo.getDogBreeds();
+
       emit(
         BreedsState.data(
           breeds,

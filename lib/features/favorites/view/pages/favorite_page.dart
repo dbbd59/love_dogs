@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:love_dogs/feature/favorites/cubit/favorite_cubit.dart';
-import 'package:love_dogs/feature/favorites/model/favorite_dog.dart';
+import 'package:love_dogs/features/favorites/cubit/favorite_cubit.dart';
+import 'package:love_dogs/features/favorites/model/favorite_dog.dart';
 
 class FavoritePage extends StatelessWidget {
   const FavoritePage({

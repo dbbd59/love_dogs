@@ -2,7 +2,7 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:love_dogs/core/router/constant.dart';
 import 'package:love_dogs/core/router/routes.dart';
-import 'package:love_dogs/feature/breeds/model/breed_list_item.dart';
+import 'package:love_dogs/features/breeds/model/breed_list_item.dart';
 
 class BreedListWidget extends StatelessWidget {
   const BreedListWidget({required this.breed, super.key});

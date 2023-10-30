@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:love_dogs/core/repo/dog_repo.dart';
-import 'package:love_dogs/feature/favorites/model/favorite_dog.dart';
+import 'package:love_dogs/features/favorites/model/favorite_dog.dart';
 
 part 'favorite_cubit.freezed.dart';
 part 'favorite_state.dart';

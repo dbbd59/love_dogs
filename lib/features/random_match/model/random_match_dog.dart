@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:love_dogs/core/utils/mapper.dart';
-import 'package:love_dogs/core/utils/random_strings.dart';
+import 'package:love_dogs/core/utils/utils.dart';
 import 'package:love_dogs/services/network/dtos/random_dog.dart';
 
 part 'random_match_dog.freezed.dart';

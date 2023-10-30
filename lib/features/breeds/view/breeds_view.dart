@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:love_dogs/core/di/injections.dart';
-import 'package:love_dogs/feature/breeds/cubit/breeds_cubit.dart';
-import 'package:love_dogs/feature/breeds/view/pages/breeds_page.dart';
+import 'package:love_dogs/features/breeds/cubit/breeds_cubit.dart';
+import 'package:love_dogs/features/breeds/view/pages/breeds_page.dart';
 
 class BreedsView extends StatelessWidget {
   const BreedsView({super.key});

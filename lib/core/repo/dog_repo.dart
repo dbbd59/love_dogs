@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
-import 'package:love_dogs/feature/breeds/model/breed_list_item.dart';
-import 'package:love_dogs/feature/favorites/model/favorite_dog.dart';
-import 'package:love_dogs/feature/random_match/model/random_match_dog.dart';
+import 'package:love_dogs/features/breeds/model/breed_list_item.dart';
+import 'package:love_dogs/features/favorites/model/favorite_dog.dart';
+import 'package:love_dogs/features/random_match/model/random_match_dog.dart';
 import 'package:love_dogs/services/network/api.dart';
 import 'package:love_dogs/services/network/dtos/breed_dto.dart';
 import 'package:love_dogs/services/network/dtos/random_dog.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:love_dogs/feature/random_match/cubit/random_match_cubit.dart';
-import 'package:love_dogs/feature/random_match/model/random_match_dog.dart';
-import 'package:love_dogs/feature/random_match/view/widgets/action_buttons.dart';
-import 'package:love_dogs/feature/random_match/view/widgets/image_widget.dart';
+import 'package:love_dogs/features/random_match/cubit/random_match_cubit.dart';
+import 'package:love_dogs/features/random_match/model/random_match_dog.dart';
+import 'package:love_dogs/features/random_match/view/widgets/action_buttons.dart';
+import 'package:love_dogs/features/random_match/view/widgets/image_widget.dart';
 
 class RandomMatchPage extends StatelessWidget {
   const RandomMatchPage({

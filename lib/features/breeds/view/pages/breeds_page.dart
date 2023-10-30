@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:love_dogs/feature/breeds/model/breed_list_item.dart';
-import 'package:love_dogs/feature/breeds/view/widgets/breed_list_item.dart';
+import 'package:love_dogs/features/breeds/model/breed_list_item.dart';
+import 'package:love_dogs/features/breeds/view/widgets/breed_list_item.dart';
 
 class BreedListPage extends StatelessWidget {
   const BreedListPage({

@@ -12,9 +12,9 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:love_dogs/core/repo/dog_repo.dart' as _i3;
 import 'package:love_dogs/core/repo/theme_repo.dart' as _i6;
-import 'package:love_dogs/feature/breeds/cubit/breeds_cubit.dart' as _i7;
-import 'package:love_dogs/feature/favorites/cubit/favorite_cubit.dart' as _i4;
-import 'package:love_dogs/feature/random_match/cubit/random_match_cubit.dart'
+import 'package:love_dogs/features/breeds/cubit/breeds_cubit.dart' as _i7;
+import 'package:love_dogs/features/favorites/cubit/favorite_cubit.dart' as _i4;
+import 'package:love_dogs/features/random_match/cubit/random_match_cubit.dart'
     as _i5;
 
 // initializes the registration of main-scope dependencies inside of GetIt
