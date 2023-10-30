@@ -12,9 +12,12 @@ class BreedListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        RouteApp.routemaster.push('$RANDOM_MATCH?breed=${breed.breedName}');
-      },
+      onTap: !breed.isSubBreed
+          ? () {
+              RouteApp.routemaster
+                  .push('$RANDOM_MATCH?breed=${breed.breedName}');
+            }
+          : null,
       child: Padding(
         padding: EdgeInsets.only(
           left: breed.isSubBreed ? 60.0 : 8.0,

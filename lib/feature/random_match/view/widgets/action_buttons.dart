@@ -9,32 +9,27 @@ class ActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.background,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          IconButton(
-            iconSize: 50,
-            onPressed: () {
-              context.read<RandomMatchCubit>().dislike();
-            },
-            color: Theme.of(context).colorScheme.error,
-            icon: const Icon(Icons.cancel_outlined),
-          ),
-          IconButton(
-            iconSize: 50,
-            color: Theme.of(context).colorScheme.primary,
-            onPressed: () {
-              context.read<RandomMatchCubit>().like();
-            },
-            icon: const Icon(Icons.favorite_outline_sharp),
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        IconButton(
+          iconSize: 50,
+          onPressed: () {
+            context.read<RandomMatchCubit>().dislike();
+          },
+          color: Theme.of(context).colorScheme.error,
+          icon: const Icon(Icons.cancel_outlined),
+        ),
+        IconButton(
+          iconSize: 50,
+          color: Theme.of(context).colorScheme.primary,
+          onPressed: () {
+            context.read<RandomMatchCubit>().like();
+          },
+          icon: const Icon(Icons.favorite_outline_sharp),
+        ),
+      ],
     );
   }
 }
