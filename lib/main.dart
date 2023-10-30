@@ -8,6 +8,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   RouteApp.initRoutes();
   initDependencies();
+
   runApp(const MainApp());
 }
 
@@ -26,10 +27,10 @@ class MainApp extends StatelessWidget {
         builder: (context) {
           return MaterialApp.router(
             routeInformationParser: RouteApp.routeInformationParser,
+            routerDelegate: RouteApp.routemaster,
             darkTheme: context.read<ThemeManager>().darkTheme,
             theme: context.read<ThemeManager>().lightTheme,
             themeMode: context.watch<ThemeManager>().themeMode,
-            routerDelegate: RouteApp.routemaster,
           );
         },
       ),

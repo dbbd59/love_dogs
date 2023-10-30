@@ -23,7 +23,7 @@ class ImageWidget extends StatelessWidget {
         color: Theme.of(context).colorScheme.background,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(32.0),
+        padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
         child: Stack(
           children: [
             ClipRRect(
@@ -31,7 +31,7 @@ class ImageWidget extends StatelessWidget {
                 Radius.circular(16.0),
               ),
               child: SizedBox(
-                height: 550,
+                height: 500,
                 width: 400,
                 child: Image.network(
                   fit: BoxFit.cover,

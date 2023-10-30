@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:love_dogs/core/router/constant.dart';
 import 'package:love_dogs/feature/breeds/view/breeds_view.dart';
 import 'package:love_dogs/feature/common/app_scaffold.dart';
+import 'package:love_dogs/feature/favorites/view/favorite_view.dart';
 import 'package:love_dogs/feature/random_match/view/random_match_view.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -46,11 +47,7 @@ class RouteApp {
               child: BreedsView(),
             ),
         FAVORITES: (route) => const MaterialPage(
-              child: Center(
-                child: Text(
-                  'Favorites',
-                ),
-              ),
+              child: FavoriteView(),
             ),
       },
     );

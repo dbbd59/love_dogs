@@ -28,7 +28,7 @@ class RandomMatchDogMapper extends Mapper<RandomDogDto, RandomMatchDog> {
         potentialMatch: generateRandomBool(),
       );
     } catch (e, s) {
-      throw MapperException('Error mapping menu', e, s);
+      throw MapperException('Error mapping dto', e, s);
     }
   }
 }

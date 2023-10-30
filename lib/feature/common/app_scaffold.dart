@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:love_dogs/core/repo/theme_manager.dart';
+import 'package:love_dogs/core/router/constant.dart';
+import 'package:love_dogs/core/router/routes.dart';
 import 'package:provider/provider.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -52,7 +54,14 @@ class AppScaffold extends StatelessWidget {
       bottomNavigationBar: NavigationBar(
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         onDestinationSelected: (int index) {
-          indexedPage.index = index;
+          switch (index) {
+            case 0:
+              RouteApp.routemaster.push(RANDOM_MATCH);
+            case 1:
+              RouteApp.routemaster.push(BREEDS);
+            case 2:
+              RouteApp.routemaster.push(FAVORITES);
+          }
         },
         selectedIndex: indexedPage.index,
         destinations: <Widget>[

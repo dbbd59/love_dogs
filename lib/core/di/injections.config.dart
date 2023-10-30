@@ -13,8 +13,9 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:love_dogs/core/repo/theme_manager.dart' as _i5;
 import 'package:love_dogs/feature/breeds/cubit/breeds_cubit.dart' as _i6;
 import 'package:love_dogs/feature/breeds/repo/breeds_repo.dart' as _i3;
+import 'package:love_dogs/feature/favorites/cubit/favorite_cubit.dart' as _i7;
 import 'package:love_dogs/feature/random_match/cubit/random_match_cubit.dart'
-    as _i7;
+    as _i8;
 import 'package:love_dogs/feature/random_match/repo/random_match_repo.dart'
     as _i4;
 
@@ -30,11 +31,13 @@ _i1.GetIt $initGetIt(
     environmentFilter,
   );
   gh.factory<_i3.BreedsRepo>(() => _i3.BreedsRepo());
-  gh.factory<_i4.RandomMatchRepo>(() => _i4.RandomMatchRepo());
+  gh.singleton<_i4.RandomMatchRepo>(_i4.RandomMatchRepo());
   gh.singleton<_i5.ThemeManager>(_i5.ThemeManager());
   gh.factory<_i6.BreedsCubit>(
       () => _i6.BreedsCubit(repo: gh<_i3.BreedsRepo>()));
-  gh.factory<_i7.RandomMatchCubit>(
-      () => _i7.RandomMatchCubit(repo: gh<_i4.RandomMatchRepo>()));
+  gh.factory<_i7.FavoriteCubit>(
+      () => _i7.FavoriteCubit(repo: gh<_i4.RandomMatchRepo>()));
+  gh.factory<_i8.RandomMatchCubit>(
+      () => _i8.RandomMatchCubit(repo: gh<_i4.RandomMatchRepo>()));
   return getIt;
 }

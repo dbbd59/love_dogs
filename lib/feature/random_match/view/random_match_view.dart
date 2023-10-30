@@ -21,6 +21,7 @@ class RandomMatchView extends StatelessWidget {
           loading: (state) => const Center(child: CircularProgressIndicator()),
           data: (state) => RandomMatchPage(
             dog: state.dog,
+            filter: state.filter,
           ),
           error: (value) => const Center(child: Text('Error')),
         ),
