@@ -2,12 +2,40 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
-import 'package:love_dogs/core/network/api.dart';
-import 'package:love_dogs/core/network/dtos/breed_dto.dart';
 import 'package:love_dogs/feature/breeds/model/breed_list_item.dart';
+import 'package:love_dogs/feature/favorites/model/favorite_dog.dart';
+import 'package:love_dogs/feature/random_match/model/random_match_dog.dart';
+import 'package:love_dogs/services/network/api.dart';
+import 'package:love_dogs/services/network/dtos/breed_dto.dart';
+import 'package:love_dogs/services/network/dtos/random_dog.dart';
 
-@injectable
-class BreedsRepo {
+@singleton
+class DogRepo {
+  final favoriteDogs = <RandomMatchDog>[];
+
+  Future<RandomMatchDog> getRandomDog({
+    String? filterBreed,
+  }) async {
+    final url = filterBreed == null
+        ? Uri.parse(RANDOM_DOG)
+        : Uri.parse(RANDOM_DOG_BY_BREED.replaceAll(':BREED', filterBreed));
+    final response = await http.get(
+      url,
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to get random dog');
+    }
+
+    final dto = RandomDogDto.fromJson(jsonDecode(response.body));
+
+    return RandomMatchDogMapper().convert(dto);
+  }
+
+  List<FavoriteDog> getFavoriteDogs() {
+    return favoriteDogs.map((e) => FavoriteDogMapper().convert(e)).toList();
+  }
+
   Future<List<BreedListItem>> getDogBreeds() async {
     final allBreeds = await fetchAllBreeds();
     final res = await fetchBreedImages(allBreeds);

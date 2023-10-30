@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:love_dogs/core/repo/theme_manager.dart';
+import 'package:love_dogs/core/repo/theme_repo.dart';
 import 'package:love_dogs/core/router/constant.dart';
 import 'package:love_dogs/core/router/routes.dart';
 import 'package:provider/provider.dart';
@@ -39,9 +39,9 @@ class AppScaffold extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
-                context.read<ThemeManager>().switchTheme();
+                context.read<ThemeRepo>().switchTheme();
               },
-              icon: context.watch<ThemeManager>().themeMode == ThemeMode.light
+              icon: context.watch<ThemeRepo>().themeMode == ThemeMode.light
                   ? const Icon(Icons.dark_mode)
                   : const Icon(Icons.light_mode),
             ),

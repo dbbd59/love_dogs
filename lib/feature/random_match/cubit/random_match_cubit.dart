@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:love_dogs/core/repo/dog_repo.dart';
 import 'package:love_dogs/feature/random_match/model/random_match_dog.dart';
-import 'package:love_dogs/feature/random_match/repo/random_match_repo.dart';
 
 part 'random_match_cubit.freezed.dart';
 part 'random_match_state.dart';
@@ -13,7 +13,7 @@ class RandomMatchCubit extends Cubit<RandomMatchState> {
     required this.repo,
   }) : super(const RandomMatchState.loading());
 
-  final RandomMatchRepo repo;
+  final DogRepo repo;
 
   Future<void> fetch(String? filterBreed) async {
     final dog = await repo.getRandomDog(filterBreed: filterBreed);

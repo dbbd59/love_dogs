@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton
-class ThemeManager extends ChangeNotifier {
-  ThemeManager() {
+class ThemeRepo extends ChangeNotifier {
+  ThemeRepo() {
     _themeMode = ThemeMode.light;
   }
 

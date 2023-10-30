@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:love_dogs/core/di/injections.dart';
-import 'package:love_dogs/core/repo/theme_manager.dart';
+import 'package:love_dogs/core/repo/theme_repo.dart';
 import 'package:love_dogs/core/router/routes.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => getDependency<ThemeManager>(),
+          create: (context) => getDependency<ThemeRepo>(),
         ),
       ],
       child: Builder(
@@ -28,9 +28,9 @@ class MainApp extends StatelessWidget {
           return MaterialApp.router(
             routeInformationParser: RouteApp.routeInformationParser,
             routerDelegate: RouteApp.routemaster,
-            darkTheme: context.read<ThemeManager>().darkTheme,
-            theme: context.read<ThemeManager>().lightTheme,
-            themeMode: context.watch<ThemeManager>().themeMode,
+            darkTheme: context.read<ThemeRepo>().darkTheme,
+            theme: context.read<ThemeRepo>().lightTheme,
+            themeMode: context.watch<ThemeRepo>().themeMode,
           );
         },
       ),
