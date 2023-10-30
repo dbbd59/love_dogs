@@ -52,7 +52,7 @@ class AppScaffold extends StatelessWidget {
         stack: indexedPage.currentStack,
       ),
       bottomNavigationBar: NavigationBar(
-        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         onDestinationSelected: (int index) {
           switch (index) {
             case 0:
@@ -65,17 +65,31 @@ class AppScaffold extends StatelessWidget {
         },
         selectedIndex: indexedPage.index,
         destinations: <Widget>[
-          const NavigationDestination(
-            icon: Icon(Icons.favorite),
-            label: 'Random Match',
+          NavigationDestination(
+            icon: Semantics(
+              container: true,
+              label: 'RandomMatch',
+              image: true,
+              child: const Icon(Icons.favorite),
+            ),
+            label: 'RandomMatch',
           ),
-          const NavigationDestination(
-            icon: Icon(Icons.list_rounded),
+          NavigationDestination(
+            icon: Semantics(
+              container: true,
+              label: 'Breeds',
+              image: true,
+              child: const Icon(Icons.list_rounded),
+            ),
             label: 'Breeds',
           ),
-          const NavigationDestination(
-            selectedIcon: Icon(Icons.bookmark),
-            icon: Icon(Icons.bookmark_border),
+          NavigationDestination(
+            icon: Semantics(
+              container: true,
+              label: 'Favorites',
+              image: true,
+              child: const Icon(Icons.bookmark),
+            ),
             label: 'Favorites',
           ),
         ],

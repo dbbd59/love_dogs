@@ -35,12 +35,15 @@ class RandomMatchPage extends StatelessWidget {
                     )
                   : null,
             ),
-            ImageWidget(
-              imageUrl: dog.imageUrl,
-              name: dog.name,
-              distance: dog.distance,
-              breed: dog.breed,
-              potentialMatch: dog.potentialMatch,
+            Semantics(
+              label: 'Dog image',
+              child: ImageWidget(
+                imageUrl: dog.imageUrl,
+                name: dog.name,
+                distance: dog.distance,
+                breed: dog.breed,
+                potentialMatch: dog.potentialMatch,
+              ),
             ),
           ],
         ),

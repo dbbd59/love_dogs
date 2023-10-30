@@ -16,24 +16,29 @@ class FavoritePage extends StatelessWidget {
     return ListView.separated(
       separatorBuilder: (context, index) => const Divider(),
       itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(favoriteDogs[index].name),
-          leading: ClipRRect(
-            borderRadius: BorderRadius.circular(25.0),
-            child: Image.network(
-              favoriteDogs[index].imageUrl,
-              height: 64.0,
-              width: 64.0,
-              fit: BoxFit.cover,
+        return Semantics(
+          container: true,
+          label: 'Favorite_$index',
+          image: true,
+          child: ListTile(
+            title: Text(favoriteDogs[index].name),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(25.0),
+              child: Image.network(
+                favoriteDogs[index].imageUrl,
+                height: 64.0,
+                width: 64.0,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          trailing: IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () {
-              context
-                  .read<FavoriteCubit>()
-                  .delete(favoriteDogs[index].imageUrl);
-            },
+            trailing: IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () {
+                context
+                    .read<FavoriteCubit>()
+                    .delete(favoriteDogs[index].imageUrl);
+              },
+            ),
           ),
         );
       },

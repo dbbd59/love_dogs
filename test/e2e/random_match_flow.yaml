@@ -1,0 +1,10 @@
+description: Random Match like and favorites.
+---
+- expectVisible: "Love Dogs"
+- pressOn: "Like"
+- pressOn: "Favorites"
+- expectVisible: "Favorite_0"
+- pressOn: "RandomMatch"
+- pressOn: "Like"
+- pressOn: "Favorites"
+- expectVisible: "Favorite_1"

@@ -13,21 +13,27 @@ class ActionButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        IconButton(
-          iconSize: 50,
-          onPressed: () {
-            context.read<RandomMatchCubit>().dislike();
-          },
-          color: Theme.of(context).colorScheme.error,
-          icon: const Icon(Icons.cancel_outlined),
+        Semantics(
+          label: 'Dislike',
+          child: IconButton(
+            iconSize: 50,
+            onPressed: () {
+              context.read<RandomMatchCubit>().dislike();
+            },
+            color: Theme.of(context).colorScheme.error,
+            icon: const Icon(Icons.cancel_outlined),
+          ),
         ),
-        IconButton(
-          iconSize: 50,
-          color: Theme.of(context).colorScheme.primary,
-          onPressed: () {
-            context.read<RandomMatchCubit>().like();
-          },
-          icon: const Icon(Icons.favorite_outline_sharp),
+        Semantics(
+          label: 'Like',
+          child: IconButton(
+            iconSize: 50,
+            color: Theme.of(context).colorScheme.primary,
+            onPressed: () {
+              context.read<RandomMatchCubit>().like();
+            },
+            icon: const Icon(Icons.favorite_outline_sharp),
+          ),
         ),
       ],
     );
