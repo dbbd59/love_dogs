@@ -7,10 +7,7 @@ https://dribbble.com/shots/19126306-Dating-App-for-Dogs
 
 Welcome to 'Love Dogs', a fun and interactive Flutter application that brings the world of dating apps to our furry friends. This application allows you to like or dislike random dogs, filter by breeds, and see your liked dogs.
 
-<img src="docs/home.png" alt="drawing" width="200"/>
-<img src="docs/homeDark.png" alt="drawing" width="200"/>
-<img src="docs/breeds.png" alt="drawing" width="200"/>
-<img src="docs/favorites.png" alt="drawing" width="200"/>
+![preview](docs/preview.png)
 
 ## Table of Contents
 
