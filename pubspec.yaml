@@ -22,6 +22,7 @@ dependencies:
   routemaster: ^1.0.1
 
 dev_dependencies:
+  bloc_test: ^9.1.5
   build_runner: ^2.4.6
   ficcanaso: ^6.0.1+1
   flutter_test:
@@ -29,6 +30,7 @@ dev_dependencies:
   freezed: ^2.4.5
   injectable_generator: ^2.4.1
   json_serializable: ^6.7.1
+  mocktail: ^1.0.1
 
 flutter:
   uses-material-design: true
