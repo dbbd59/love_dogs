@@ -63,7 +63,9 @@ The codebase is structured to separate concerns and ensure code maintainability 
 
 ## Testing
 
-### e2e
+> For the purpose of this project, I test only one part of the application and do only one type of test for each type.
+
+### E2E
 
 It's using fluttium for end to end testing
 
@@ -95,3 +97,15 @@ fluttium test test/e2e/random_match_flow.yaml
   ✅  Press on "Favorites"
   ✅  Expect visible "Favorite_1"
 ```
+
+### Unit and UI
+
+- run it:
+
+```bash
+flutter test
+```
+
+- UI test uses golden screenshots to test the UI. the results are stored in 'test/ui/goldens'.
+
+- Unit test is used to test the business logic. in this case the state management.
